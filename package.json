@@ -1,0 +1,24 @@
+{
+  "name": "site-teste",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "vite build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fagundesjohnnii-boop/site-teste.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/fagundesjohnnii-boop/site-teste/issues"
+  },
+  "homepage": "https://github.com/fagundesjohnnii-boop/site-teste#readme",
+  "devDependencies": {
+    "vite": "^8.0.5"
+  }
+}
