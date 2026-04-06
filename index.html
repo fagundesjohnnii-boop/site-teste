@@ -1,11 +1,72 @@
-<html>
+<!DOCTYPE html>
+<html lang="pt-BR">
 <head>
-    <title>Site de Teste</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jogo da Velha</title>
     <style>
-        body { background-color: blue; color: white; }
+        body { background-color: blue; color: white; display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh; }
+        .board { display: grid; grid-template-columns: repeat(3, 100px); grid-template-rows: repeat(3, 100px); gap: 5px; }
+        .cell { width: 100px; height: 100px; background-color: #222; display: flex; align-items: center; justify-content: center; font-size: 2em; cursor: pointer; }
     </style>
 </head>
 <body>
-    <h1>Breve</h1>
+    <h1>Jogo da Velha</h1>
+    <div class="board">
+        <div class="cell" id="0"></div>
+        <div class="cell" id="1"></div>
+        <div class="cell" id="2"></div>
+        <div class="cell" id="3"></div>
+        <div class="cell" id="4"></div>
+        <div class="cell" id="5"></div>
+        <div class="cell" id="6"></div>
+        <div class="cell" id="7"></div>
+        <div class="cell" id="8"></div>
+    </div>
+    <script>
+        let board = ['', '', '', '', '', '', '', '', ''];
+        let currentPlayer = 'X';
+
+        const cells = document.querySelectorAll('.cell');
+
+        cells.forEach(cell => {
+            cell.addEventListener('click', () => {
+                const index = cell.id;
+                if (board[index] === '') {
+                    board[index] = currentPlayer;
+                    cell.innerText = currentPlayer;
+                    checkWinner();
+                    currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
+                }
+            });
+        });
+
+        function checkWinner() {
+            const winningCombinations = [
+                [0, 1, 2], [3, 4, 5], [6, 7, 8], // Horizontais
+                [0, 3, 6], [1, 4, 7], [2, 5, 8], // Verticais
+                [0, 4, 8], [2, 4, 6] // Diagonais
+            ];
+
+            for (const combination of winningCombinations) {
+                const [a, b, c] = combination;
+                if (board[a] && board[a] === board[b] && board[a] === board[c]) {
+                    setTimeout(() => alert(`${board[a]} ganhou!`), 10);
+                    resetGame();
+                }
+            }
+
+            if (!board.includes('')) {
+                setTimeout(() => alert('Empate!'), 10);
+                resetGame();
+            }
+        }
+
+        function resetGame() {
+            board = ['', '', '', '', '', '', '', '', ''];
+            cells.forEach(cell => cell.innerText = '');
+            currentPlayer = 'X';
+        }
+    </script>
 </body>
 </html>
