@@ -1,21 +1,16 @@
 {
-  "name": "site-teste",
+  "name": "vite-em-breve",
   "version": "1.0.0",
-  "description": "Site de Teste usando Vite",
-  "main": "dist/index.html",
   "scripts": {
+    "dev": "vite",
     "build": "vite build",
-    "start": "vite",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "serve": "vite preview"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/fagundesjohnnii-boop/site-teste.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
   "dependencies": {
-    "vite": "^8.0.5"
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0"
+  },
+  "devDependencies": {
+    "vite": "^4.0.0"
   }
 }
