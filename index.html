@@ -1,55 +1,23 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Editor de Site</title>
+    <title>Site Teste Verde</title>
     <style>
-        body { font-family: Arial, sans-serif; display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh; background-color: #f0f0f0; }
-        form { display: flex; flex-direction: column; width: 300px; }
-        input, textarea { margin: 10px 0; padding: 10px; font-size: 16px; }
-        button { padding: 10px; font-size: 16px; background-color: blue; color: white; border: none; cursor: pointer; }
-        .preview { margin-top: 20px; padding: 20px; border: 1px solid #ccc; width: 100%; height: 200px; overflow: auto; background-color: white; }
+        body {
+            background-color: green;
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-family: Arial, sans-serif;
+        }
     </style>
 </head>
 <body>
-    <h1>Editor de Site</h1>
-    <form id="siteForm">
-        <label for="siteName">Nome do Site:</label>
-        <input type="text" id="siteName" name="siteName" required>
-        <label for="description">Descrição:</label>
-        <textarea id="description" name="description" required></textarea>
-        <button type="submit">Criar Site</button>
-    </form>
-    <div class="preview" id="preview"></div>
-    <script>
-        const preview = document.getElementById('preview');
-
-        document.getElementById('siteForm').onsubmit = async (e) => {
-            e.preventDefault();
-            const siteName = document.getElementById('siteName').value;
-            const description = document.getElementById('description').value;
-            const response = await fetch('/generate-content', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({ siteName, description })
-            });
-            const data = await response.json();
-            console.log(data);
-            alert('Site criado com sucesso!');
-        };
-
-        // Atualizar visualização com base na entrada
-        const updatePreview = () => {
-            const siteName = document.getElementById('siteName').value;
-            const description = document.getElementById('description').value;
-            preview.innerHTML = `<h1>${siteName}</h1><p>${description}</p>`;
-        };
-
-        document.getElementById('siteName').addEventListener('input', updatePreview);
-        document.getElementById('description').addEventListener('input', updatePreview);
-    </script>
+    <h1>Site Verde para Teste</h1>
 </body>
 </html>
